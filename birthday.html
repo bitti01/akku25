@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Birthday My Love ❤️</title>
+
+    <style>
+        body {
+            margin: 0;
+            overflow-x: hidden;
+            font-family: 'Segoe UI', cursive;
+            background: linear-gradient(to right, #f8cdda, #f5b7b1);
+            text-align: center;
+            color: #4a235a;
+        }
+
+        .container {
+            padding: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 42px;
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        img {
+            max-width: 300px;
+            border-radius: 20px;
+            margin: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: none;
+            background: #c0392b;
+            color: white;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        /* Falling Hearts */
+        .heart {
+            position: fixed;
+            top: -10px;
+            color: red;
+            font-size: 20px;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
+        /* Popup */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+
+        .popup h2 {
+            color: #c0392b;
+        }
+
+        .close-btn {
+            margin-top: 15px;
+            background: #c0392b;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Happy Birthday My Love ❤️</h1>
+
+    <img src="your_photo.jpg" alt="Us Together">
+    <br>
+    <img src="love.gif" alt="Love Gif">
+
+    <p>
+        My love,<br><br>
+        You are my sunshine, my happiness, and my greatest blessing. 🌞  
+        Every moment with you feels magical and full of love.  
+        <br><br>
+        Thank you for being my strength, my smile, and my forever.  
+        <br><br>
+        I love you more than words can ever express. ❤️  
+        <br><br>
+        Forever yours 💕
+    </p>
+
+    <button onclick="playSong()">Play Our Song 🎵</button>
+    <br>
+    <button onclick="showPopup()">Click for a Surprise 🎁</button>
+
+    <audio id="song">
+        <source src="sunshine.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+<!-- Popup -->
+<div class="popup" id="popup">
+    <h2>Surprise ❤️</h2>
+    <p>
+        You are the best thing that ever happened to me.  
+        I am so lucky to have you in my life.  
+        <br><br>
+        Happy Birthday once again, my love! 💖
+    </p>
+    <button class="close-btn" onclick="closePopup()">Close</button>
+</div>
+
+<script>
+function playSong() {
+    document.getElementById("song").play();
+}
+
+function showPopup() {
+    document.getElementById("popup").style.display = "block";
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+
+/* Create Falling Hearts */
+function createHearts() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}
+
+setInterval(createHearts, 300);
+</script>
+
+</body>
+</html>
